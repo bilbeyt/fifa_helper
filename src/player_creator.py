@@ -3,8 +3,8 @@ import os
 import logging
 from typing import List
 import pandas as pd
-from custom_types import PlayerCreateTuple
-from db import PlayerAdapter
+from src.custom_types import PlayerCreateTuple
+from src.db import PlayerAdapter
 
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)

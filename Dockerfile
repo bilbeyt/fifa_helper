@@ -5,7 +5,7 @@ COPY . /app
 WORKDIR /app
 
 RUN apk add --no-cache --virtual .build-deps --update gcc build-base \
-    && pip install pip==20.2.1 && pip install -r requirements/base.txt \
+    && pip install pip==20.2.1 && pip install -r requirements/deploy.txt \
     && apk del .build-deps
 
-CMD python src/app.py
+CMD gunicorn -b 0.0.0.0:$PORT -w 4 -t 300 src.wsgi:app

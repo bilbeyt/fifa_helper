@@ -5,8 +5,9 @@ import cgi
 import logging
 from typing import Callable, Dict, Tuple, Any, List
 from wsgiref.simple_server import make_server
-from utils import field_storage_parser
-from views import HomePageView, TeamBuilderPageView, StaticView, not_found_view
+from src.utils import field_storage_parser
+from src.views import (
+    HomePageView, TeamBuilderPageView, StaticView, not_found_view)
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -60,6 +61,8 @@ class App:
             except KeyboardInterrupt:
                 logger.info("Server is shutdown")
 
+
+app = App()
+
 if __name__ == "__main__":
-    app = App()
     app.start_server()

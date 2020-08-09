@@ -1,7 +1,7 @@
 """This module has team builder related class"""
 from typing import Tuple, List
-from db import PlayerAdapter
-from custom_types import BuilderData, Player
+from src.db import PlayerAdapter
+from src.custom_types import BuilderData, Player
 
 
 class TeamBuilder:
