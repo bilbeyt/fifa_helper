@@ -3,9 +3,9 @@ import json
 import logging
 import os
 
-from db import PlayerAdapter
-import conf
-from builder import TeamBuilder
+from src.db import PlayerAdapter
+import src.conf as conf
+from src.builder import TeamBuilder
 
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)

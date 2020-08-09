@@ -1,5 +1,5 @@
 """Tests for db related operations in this module"""
-from db import PlayerAdapter
+from src.db import PlayerAdapter
 
 
 def test_db_connect_error():

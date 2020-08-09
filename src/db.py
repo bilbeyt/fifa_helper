@@ -4,9 +4,9 @@ from typing import List, Any
 
 import mysql.connector
 
-import conf
-from utils import create_player_list
-from custom_types import Player, PlayerTuple, PlayerCreateTuple
+import src.conf as conf
+from src.utils import create_player_list
+from src.custom_types import Player, PlayerTuple, PlayerCreateTuple
 
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
