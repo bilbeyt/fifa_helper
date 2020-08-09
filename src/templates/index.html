@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Search Player - FIFA 19{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="input-group mb-3">
+            <input id="word" type="text" class="form-control" placeholder="Search player" aria-label="Search player">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-primary" id="search_btn">Search</button>          
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="spinner"></div>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-striped" id="players"></table>
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="../static/js/search.js"></script>
+{% endblock %}
