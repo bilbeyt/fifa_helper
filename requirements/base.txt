@@ -1,0 +1,4 @@
+Jinja2==2.11.2
+mysql-connector-python==8.0.21
+pylint==2.5.3
+mypy==0.782
