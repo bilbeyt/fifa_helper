@@ -3,11 +3,12 @@
 {% block content %}
 <div class="row">
     <div class="col-12">
+        <div id="errors"></div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">€</span>
             </div>
-            <input id="budget" type="text" class="form-control" placeholder="Budget" aria-label="Budget">
+            <input id="budget" type="number" min="0" step="1" class="form-control" placeholder="Budget" aria-label="Budget">
             <div class="input-group-append">
                 <button type="button" class="btn btn-primary" id="build_btn">Build</button>          
             </div>

@@ -49,7 +49,7 @@ class PlayerCreator:
 
 if __name__ == "__main__":
     logger.info("Create player operation started")
-    creator = PlayerCreator(os.path.abspath("../data/data.csv"))
+    creator = PlayerCreator(os.path.abspath("data/data.csv"))
     creator.parse_csv()
     logger.info("CSV file processed")
     player_tuples = creator.create_object_tuples()

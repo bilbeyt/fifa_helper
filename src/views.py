@@ -47,7 +47,12 @@ class TeamBuilderPageView:
     def post(**kwargs):
         """This function handling post requests and returns
         team generated with budget"""
-        budget = int(kwargs["data"]["budget"])
+        try:
+            budget = int(kwargs["data"]["budget"])
+        except Exception as err:
+            logger.error(err)
+            data = {"error": "Budget should be an integer"}
+            return json.dumps(data), "text/json", "400 Bad Request"
         builder = TeamBuilder(budget)
         players = builder.build()
         return json.dumps(players), "text/json", "200 OK"

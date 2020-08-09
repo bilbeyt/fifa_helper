@@ -1,11 +1,9 @@
-FROM python:3.8-alpine
+FROM python:slim
 
 COPY . /app
 
 WORKDIR /app
 
-RUN apk add --no-cache --virtual .build-deps --update gcc build-base \
-    && pip install pip==20.2.1 && pip install -r requirements/deploy.txt \
-    && apk del .build-deps
+RUN pip install --no-cache-dir -r requirements/deploy.txt
 
-CMD gunicorn -b 0.0.0.0:$PORT -w 4 -t 300 src.wsgi:app
+CMD gunicorn -b 0.0.0.0:${PORT:=8000} -w 4 -t 300 wsgi:app

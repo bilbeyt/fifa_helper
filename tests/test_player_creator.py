@@ -1,7 +1,7 @@
 """Tests for player create functionalities"""
 import os
 import pandas as pd
-from src.player_creator import PlayerCreator
+from player_creator import PlayerCreator
 
 
 def test_player_creator():
