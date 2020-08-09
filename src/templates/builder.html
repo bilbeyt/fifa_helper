@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Team Builder - FIFA 19{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">€</span>
+            </div>
+            <input id="budget" type="text" class="form-control" placeholder="Budget" aria-label="Budget">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-primary" id="build_btn">Build</button>          
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div id="spinner"></div>
+<div class="row">
+    <div class="col-12">
+        <div class="table table-striped" id="players"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div id="build_info"></div>          
+    </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script src="../static/js/builder.js"></script>
+{% endblock %}
