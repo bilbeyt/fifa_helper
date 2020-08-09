@@ -11,10 +11,10 @@ logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class DataLoader:
+class PlayerCreator:
     """This class loads the data and creates players"""
     def __init__(self, filename: str) -> None:
-        """This function initialize DataLoader"""
+        """This function initialize PlayerCreator"""
         self.filename = filename
         self.adapter = PlayerAdapter()
         self.csv_data: pd.DataFrame = None
@@ -49,10 +49,10 @@ class DataLoader:
 
 if __name__ == "__main__":
     logger.info("Create player operation started")
-    loader = DataLoader(os.path.abspath("../data/data.csv"))
-    loader.parse_csv()
+    creator = PlayerCreator(os.path.abspath("../data/data.csv"))
+    creator.parse_csv()
     logger.info("CSV file processed")
-    player_tuples = loader.create_object_tuples()
+    player_tuples = creator.create_object_tuples()
     logger.info("Creating players")
-    loader.create_players(player_tuples, 1000)
+    creator.create_players(player_tuples, 1000)
     logger.info("Create player operation finished")
