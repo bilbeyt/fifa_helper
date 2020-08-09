@@ -45,12 +45,12 @@ class App:
             "path_params": path_params,
             "data": request_body
         }
-        response, content_type = handler(**kwargs)
+        response, content_type, status = handler(**kwargs)
         start_response(
-            "200 OK", headers=[("Content-Type", content_type)])
+            status, headers=[("Content-Type", content_type)])
         return [response.encode()]
 
-    def start(self) -> None:
+    def start_server(self) -> None:
         """This function start the server"""
         handler: Callable = self
         logger.info("Listening on port:8000")
@@ -60,6 +60,6 @@ class App:
             except KeyboardInterrupt:
                 logger.info("Server is shutdown")
 
-
-app = App()
-app.start()
+if __name__ == "__main__":
+    app = App()
+    app.start_server()

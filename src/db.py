@@ -41,8 +41,6 @@ class DBAdapter:
             if self.conn.is_connected():
                 cursor = self.conn.cursor()
                 cursor.execute(statement)
-                if fetch_type == "get":
-                    return cursor.fetchone()
                 if fetch_type == "list":
                     return cursor.fetchall()
         except mysql.connector.Error as error:
