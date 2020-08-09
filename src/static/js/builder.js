@@ -69,11 +69,20 @@ $(document).ready(function(){
         return tableDiv;
     }
 
+    function createAlert(message){
+        return `
+            <div class="alert alert-danger" role="alert">
+                ${message}
+            </div>
+        `
+    }
+
     $("#build_btn").on("click", function(){
         const data = new FormData();
         data.append("budget", $("#budget").val());
         $("#players").empty();
         $("#build_info").empty();
+        $("#errors").empty();
         showSpinner();
         $.ajax({
             type: 'POST',
@@ -90,7 +99,9 @@ $(document).ready(function(){
             hideSpinner();
         })
         .fail(function(err){
-            console.log(err);
+            const message = JSON.parse(err.responseText)["error"];
+            const alert = createAlert(message);
+            $("#errors").html(alert);
             hideSpinner();
         })
     })

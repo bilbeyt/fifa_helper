@@ -23,6 +23,12 @@ def test_post_builder(client):
     assert resp[2]['Content-Type'] == "text/json"
     assert resp[1] == "200 OK"
 
+def test_post_builder_non_number(client):
+    """Case: Post method of builder"""
+    resp = client.post("/builder", data={"budget": "20.5"})
+    assert resp[2]['Content-Type'] == "text/json"
+    assert resp[1] == "400 Bad Request"
+
 def test_static_css(client):
     """Case: Get method of static using css"""
     resp = client.get("/static/css/navbar-top.css")

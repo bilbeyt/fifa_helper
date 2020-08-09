@@ -1,7 +1,7 @@
 """Pytest configuration module"""
 import pytest
 from werkzeug.test import Client
-from src.app import App
+from app import App
 
 
 @pytest.fixture
