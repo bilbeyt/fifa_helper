@@ -1,9 +1,8 @@
 """This module is created for db operations"""
 import logging
-from typing import List
+from typing import List, Any
 
 import mysql.connector
-from mysql.connector.connection_cext import CMySQLConnection
 
 import src.conf as conf
 from src.utils import create_player_list
@@ -23,7 +22,7 @@ class DBAdapter:
         self.db_name = conf.DB
         self.host = conf.DB_HOST
         self.port = conf.DB_PORT
-        self.conn: CMySQLConnection = None
+        self.conn: Any = None
 
     def start_connection(self) -> None:
         """This function starts the connection for db"""
