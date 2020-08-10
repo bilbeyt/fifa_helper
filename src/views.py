@@ -49,7 +49,7 @@ class TeamBuilderPageView:
         team generated with budget"""
         try:
             budget = int(kwargs["data"]["budget"])
-        except Exception as err:
+        except ValueError as err:
             logger.error(err)
             data = {"error": "Budget should be an integer"}
             return json.dumps(data), "text/json", "400 Bad Request"
